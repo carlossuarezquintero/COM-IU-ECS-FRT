@@ -1,0 +1,31 @@
+<div class="header">
+
+    <div class="header__title">
+        <div>
+          <a class="app-a" routerLinkActive="app-a_active"  (click)="onClicked()">
+            <span class="material-icons md-36 estiloIcon">menu</span>
+          </a>
+        </div>
+        <span>Store Carvajal</span>
+    </div>
+  
+    <div class="header__navigation" fxHide.xs fxHide.sm>
+        <a class="app-a" routerLink="/" routerLinkActive="app-a_active">Inicio</a>
+        <a class="app-a" routerLink="shop" routerLinkActive="app-a_active">Tienda</a>
+        <a class="app-a" routerLink="demo" routerLinkActive="app-a_active">Contacto</a>
+    </div>
+  
+    <div class="header__buttons" fxHide.xs fxHide.sm>
+        <a routerLink="shop" class="app-a" routerLinkActive="app-a_active">
+          <span class="material-icons md-36 estiloIcon">shopping_cart</span>
+        </a>
+        <app-button  routerLink="auth/login">Login</app-button>
+        <app-button  routerLink="auth/registration">Registrar</app-button>
+
+  
+        <a class="app-a"  routerLinkActive="app-a_active">Salir Sesion</a>
+  
+    </div>
+  
+  
+  </div>

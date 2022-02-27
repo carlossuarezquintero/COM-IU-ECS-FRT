@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit ,Output,EventEmitter} from '@angular/core';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -6,7 +6,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeaderComponent implements OnInit {
-
+@Output() menuClicked = new EventEmitter();
 
   constructor(
   ) { }
@@ -14,4 +14,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onClicked() : void {
+    this.menuClicked.emit();
+  }
 }

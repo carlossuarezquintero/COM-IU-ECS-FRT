@@ -1,0 +1,39 @@
+<mat-nav-list>
+
+  <a mat-list-item routerLink="/" (click)="closeMenu()">
+    <mat-icon>home</mat-icon>
+    <span class="navegation-list-label">Home</span>
+  </a>
+
+  <a *ngIf="!isAuthorized" mat-list-item routerLink="auth/login" (click)="closeMenu()">
+    <mat-icon>login</mat-icon>
+    <span class="navegation-list-label">Inicio Sesion</span>
+  </a>
+
+
+  <a *ngIf="!isAuthorized" mat-list-item routerLink="auth/registration" (click)="closeMenu()">
+    <mat-icon>how_to_register</mat-icon>
+    <span class="navegation-list-label">Registrar</span>
+  </a>
+
+  <a mat-list-item routerLink="shop" (click)="closeMenu()">
+    <mat-icon>store</mat-icon>
+    <span class="navegation-list-label">Tienda</span>
+  </a>
+
+  <a mat-list-item routerLink="demo" (click)="closeMenu()">
+    <mat-icon>contact_support</mat-icon>
+    <span class="navegation-list-label">Contacto</span>
+  </a>
+
+  <a  *ngIf="isAuthorized" mat-list-item routerLink="product/new" (click)="closeMenu()">
+    <mat-icon>add</mat-icon>
+    <span class="navegation-list-label">Nuevo Producto</span>
+  </a>
+
+  <a mat-list-item *ngIf="isAuthorized" (click)="onSignOut()" (click)="closeMenu()">
+    <mat-icon>logout</mat-icon>
+    <span class="navegation-list-label">Salir Sesion</span>
+  </a>
+
+</mat-nav-list>

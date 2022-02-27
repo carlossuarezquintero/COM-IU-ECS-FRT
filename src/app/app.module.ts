@@ -30,6 +30,13 @@ const StoreDevtools = !environment.production ? StoreDevtoolsModule.instrument({
 import {ButtonModule} from '@app/shared/buttons';
 import { HttpClientModule } from '@angular/common/http';
 
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {FlexLayoutModule} from '@angular/flex-layout';
+import {MatListModule} from '@angular/material/list';
+import {MatIconModule} from '@angular/material/icon';
+
+import { MenuListComponent } from './components/menu-list/menu-list.component';
+
 const APP_DATE_FORMATS: MatDateFormats = {
     parse: {
       dateInput: { day: 'numeric', month: 'numeric', year: 'numeric'},
@@ -47,10 +54,15 @@ const APP_DATE_FORMATS: MatDateFormats = {
   declarations: [
     AppComponent,
     HeaderComponent,
+    MenuListComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    MatSidenavModule,
+    FlexLayoutModule,
+    MatListModule,
+    MatIconModule,
 
 
     provideFirebaseApp(() => initializeApp(environment.firebase.config)),
