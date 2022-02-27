@@ -14,5 +14,6 @@ export const environment = {
   actionCodeSettings: {
     url: 'https://ecommerce-e4e6c.web.app/profile/new',
     handleCodeInApp: true
-  }
+  },
+  url:'https://localhost:44362/'
 };
