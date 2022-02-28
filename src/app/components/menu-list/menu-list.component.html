@@ -5,13 +5,13 @@
     <span class="navegation-list-label">Home</span>
   </a>
 
-  <a  mat-list-item routerLink="auth/login" (click)="closeMenu()">
+  <a *ngIf="!isAuthorized" mat-list-item routerLink="auth/login" (click)="closeMenu()">
     <mat-icon>login</mat-icon>
     <span class="navegation-list-label">Inicio Sesion</span>
   </a>
 
 
-  <a  mat-list-item routerLink="auth/registration" (click)="closeMenu()">
+  <a *ngIf="!isAuthorized" mat-list-item routerLink="auth/registration" (click)="closeMenu()">
     <mat-icon>how_to_register</mat-icon>
     <span class="navegation-list-label">Registrar</span>
   </a>
@@ -26,12 +26,12 @@
     <span class="navegation-list-label">Contacto</span>
   </a>
 
-  <a  mat-list-item routerLink="product/new" (click)="closeMenu()">
+  <a  *ngIf="isAuthorized" mat-list-item routerLink="product/new" (click)="closeMenu()">
     <mat-icon>add</mat-icon>
     <span class="navegation-list-label">Nuevo Producto</span>
   </a>
 
-  <a mat-list-item  (click)="onSignOut()" (click)="closeMenu()">
+  <a mat-list-item *ngIf="isAuthorized" (click)="onSignOut()" (click)="closeMenu()">
     <mat-icon>logout</mat-icon>
     <span class="navegation-list-label">Salir Sesion</span>
   </a>

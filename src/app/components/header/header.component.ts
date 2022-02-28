@@ -1,4 +1,6 @@
-import { ChangeDetectionStrategy, Component, OnInit ,Output,EventEmitter} from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { UserResponse } from '@app/store/user';
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -6,7 +8,12 @@ import { ChangeDetectionStrategy, Component, OnInit ,Output,EventEmitter} from '
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeaderComponent implements OnInit {
-@Output() menuClicked = new EventEmitter();
+  @Output() menuClicked = new EventEmitter();
+  @Input() isAuthorized !: boolean | null;
+  @Input() user !: UserResponse | null;
+
+  @Output() signOut = new EventEmitter<void>();
+
 
   constructor(
   ) { }
@@ -17,4 +24,10 @@ export class HeaderComponent implements OnInit {
   onClicked() : void {
     this.menuClicked.emit();
   }
+
+  onSignOut(): void {
+    this.signOut.emit();
+  }
+
+
 }

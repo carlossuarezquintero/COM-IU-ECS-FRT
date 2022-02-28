@@ -21,7 +21,7 @@ export class UserEffects {
     private router: Router,
     private httpClient: HttpClient,
     private notification: NotificationService
-  ) { console.log("hola");}
+  ) { }
 
   signUpEmail: Observable<Action> = createEffect(() =>
     this.actions.pipe(
@@ -62,7 +62,10 @@ export class UserEffects {
             tap((response: UserResponse) => {
               
               localStorage.setItem('token', response.token);
-              this.router.navigate(['/']);
+              this.router.navigate(['/'])
+                .then(() => {
+                  window.location.reload();
+                });
             }),
             map((response: UserResponse) => new fromActions.SignInEmailSuccess(response.id, response || null)),
             //catchError(err => of(new fromActions.SignInEmailError(err.message)))
@@ -90,8 +93,9 @@ export class UserEffects {
             .pipe(
               tap((user: UserResponse) => {
                 console.log('data del usuario en sesion que viene del servidor=>', user);
+                
               }),
-              map((user: UserResponse) => new fromActions.InitAuthorized(user.id, user || null)),
+              map((user: UserResponse) => new fromActions.InitAuthorized(user.nombre, user || null)),
               catchError(err => of(new fromActions.InitError(err.message)))
             )
         } else {
