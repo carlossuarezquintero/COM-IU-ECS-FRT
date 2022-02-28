@@ -32,9 +32,7 @@ En pro de cumplir con el objetivo de mantener las mejores practicas de desarollo
 
 3)RxJS
 
-4) Observable Pattern
 
-5) Iteration Patter
 
 
 ### Ejecución
