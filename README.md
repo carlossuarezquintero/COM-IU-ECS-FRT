@@ -22,6 +22,8 @@ E-Carvajal store [WebApp]  es un proyecto desarollado en Typescript en el marco 
 
 E-Carvajal store [API] implementa carga de archivos hacia un Bucket Administrado por FireBase
 
+![arquitectura_back](https://firebasestorage.googleapis.com/v0/b/storeapp-c5f8a.appspot.com/o/repo%2Ffirebase.gif?alt=media&token=5c95915c-9a62-49ee-977d-7f42ee0c9384)
+
 ### Patrones de Diseño
 
 En pro de cumplir con el objetivo de mantener las mejores practicas de desarollo se implementan los siguientes patrones de diseño:
@@ -33,10 +35,21 @@ En pro de cumplir con el objetivo de mantener las mejores practicas de desarollo
 3)RxJS
 
 
+### Deployment
 
+Con el fin de que su funcionamiento sea el correcto asegurese de que el backen este disponible https://localhost:44362/swagger
 
 ### Ejecución
 
-Para ejecutar el proyecto 
+Para ejecutar el proyecto ejecute los siguiente comandos:
 
+
+````
+
+npm install
+npm start
+
+````
+
+![arquitectura_ejec](https://firebasestorage.googleapis.com/v0/b/storeapp-c5f8a.appspot.com/o/repo%2Fshop2assa.gif?alt=media&token=668a12bc-660d-40dd-b90a-c9a2adcb271f)
 
