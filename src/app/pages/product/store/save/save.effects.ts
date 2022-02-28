@@ -25,7 +25,7 @@ export class ListEffects {
       ofType(fromActions.Types.CREATE),
       map((action: fromActions.Create) => action.product),
       switchMap((request: ProductCreateRequest) =>
-        this.httpClient.post<ProductResponse>(`${environment.url}/api/Producto`, request)
+        this.httpClient.post<ProductResponse>(`${environment.url}/api/producto`, request)
           .pipe(
             delay(1000),
             tap( (product: ProductResponse) => {
