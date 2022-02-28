@@ -1,0 +1,13 @@
+
+.form {
+    display: flex;
+  
+    &__textfield {
+      display: inline-flex;
+    }
+  
+    &__actions {
+      display:inline-flex;
+    }
+  }
+  

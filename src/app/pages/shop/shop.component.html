@@ -1,1 +1,20 @@
-<p>shop works!</p>
+<div class="container">
+    <div class="filter">
+        <app-filter></app-filter>
+    </div>
+    <div class="pagination">
+        <app-paginator></app-paginator>
+    </div>
+    <div class="buscador">
+        <app-search></app-search>
+    </div>
+    <div class="productos">
+       
+       
+        <app-products *ngIf="pagination$ | async as pagination "  [products]="pagination.data">
+           
+        </app-products>
+
+        
+    </div>
+</div>

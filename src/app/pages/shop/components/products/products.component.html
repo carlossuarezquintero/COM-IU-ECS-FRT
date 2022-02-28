@@ -1,0 +1,29 @@
+<ul class="cards">
+    <li class="cards__item" *ngFor="let product of products">
+
+        <mat-card class="mat-class">
+            <mat-card-header>
+                <mat-card-title>{{ product.nombre }}</mat-card-title>
+                <mat-card-subtitle>{{product.categoriaNombre}}</mat-card-subtitle>
+            </mat-card-header>
+
+            <img mat-card-image src="{{product.imagen}}" alt="{{product.nombre}}">
+
+            <mat-card-content>
+
+                <p>
+                  {{ product.descripcion }}
+                </p>
+
+            </mat-card-content>
+
+            <mat-card-actions>
+                <button mat-button routerLink="/product/{{product.productoId}}" >Ver</button>
+               
+            </mat-card-actions>
+
+        </mat-card>
+
+    </li>
+
+</ul>

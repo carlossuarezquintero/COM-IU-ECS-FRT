@@ -15,5 +15,5 @@ export const environment = {
     url: 'http://localhost:5200/profile/new',
     handleCodeInApp: true
   },
-  url:'https://localhost:44362/'
+  url:'https://localhost:44362'
 };

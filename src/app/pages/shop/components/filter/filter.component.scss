@@ -1,0 +1,8 @@
+@import "styles/mixins";
+
+.filter {
+  @include card;
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+}

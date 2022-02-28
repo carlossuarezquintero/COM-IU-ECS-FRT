@@ -1,0 +1,23 @@
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin:0 ;
+    padding: 0;
+  
+    &__item{
+        display: flex;
+        padding: 1rem;
+    }
+  }
+  
+  .mat-class {
+      max-width: 400px;
+  }
+  
+  mat-card img {
+    object-fit: cover;
+    width: 400px;
+    height: 73%;
+  }
+  

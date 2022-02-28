@@ -28,12 +28,13 @@ import {EffectsModule} from '@ngrx/effects';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 const StoreDevtools = !environment.production ? StoreDevtoolsModule.instrument({maxAge: 50}) : [];
 import {ButtonModule} from '@app/shared/buttons';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
+import {AuthInterceptor} from './auth-interceptor';
 
 import { MenuListComponent } from './components/menu-list/menu-list.component';
 
@@ -63,6 +64,14 @@ const APP_DATE_FORMATS: MatDateFormats = {
     FlexLayoutModule,
     MatListModule,
     MatIconModule,
+    StoreDevtools,
+
+    StoreModule.forRoot({}),
+    EffectsModule.forRoot(),
+
+    NotificationModule.forRoot(),
+
+    HttpClientModule,
 
 
     provideFirebaseApp(() => initializeApp(environment.firebase.config)),
@@ -83,6 +92,7 @@ const APP_DATE_FORMATS: MatDateFormats = {
     HttpClientModule
   ],
   providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
     {provide: MAT_DATE_LOCALE, useValue: 'en-GB'},
     {provide: MAT_DATE_FORMATS, useValue: APP_DATE_FORMATS}
   ],
