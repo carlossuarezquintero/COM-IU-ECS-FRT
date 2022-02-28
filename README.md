@@ -15,7 +15,7 @@
 General :computer:
 --------------------------------------
 
-E-Carvajal store [API]  es un proyecto desarollado en Typescript en el marco de Angular12  en una arquitectura solida que permite el desarollo de buenas practicas. Este proyecto esta conectado con un Bucket storage de ![Firebase](https://img.shields.io/badge/firebase-%23039BE5.svg?style=for-the-badge&logo=firebase)
+E-Carvajal store [WebApp]  es un proyecto desarollado en Typescript en el marco de Angular12  en una arquitectura solida que permite el desarollo de buenas practicas. Este proyecto esta conectado con un Bucket storage de ![Firebase](https://img.shields.io/badge/firebase-%23039BE5.svg?style=for-the-badge&logo=firebase)
 
 
 ### Bases de datos 
