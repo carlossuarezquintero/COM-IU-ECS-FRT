@@ -12,5 +12,5 @@ export interface UserRequest extends User {
 }
 
 
-export type UserCreateRequest = Omit<UserRequest, 'id' | 'token' | 'imagen' | 'admin' >;
+export type UserCreateRequest = Omit<UserRequest, 'id' | 'imagen' | 'admin' | 'role'|'token'  >;
 

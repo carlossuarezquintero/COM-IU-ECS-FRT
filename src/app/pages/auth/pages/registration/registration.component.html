@@ -1,1 +1,53 @@
-<p>registration works!</p>
+<div class="app-page">
+    <div class="app-page__header">
+      <h1>Registro de Usuario</h1>
+    </div>
+  
+    <form [formGroup]="form" (submit)="onSubmit()" (keyup.enter)="onSubmit()" novalidate autocomplete="off">
+  
+      <div class="app-page__content">
+        <app-form-field label="E-Mail" [required]="true" [control]="form.controls.email" [isInline]="false"
+          [patternError]="regexErrors.email">
+          <app-input formControlName="email" ></app-input>
+        </app-form-field>
+  
+  
+        <app-form-field label="Username" [required]="true" [control]="form.controls.username" [isInline]="false">
+          <app-input formControlName="username"></app-input>
+        </app-form-field>
+  
+        <app-form-field label="Nombre" [required]="true" [control]="form.controls.nombre" [isInline]="false">
+          <app-input formControlName="nombre"></app-input>
+        </app-form-field>
+  
+        <app-form-field label="Apellido" [required]="true" [control]="form.controls.apellido" [isInline]="false">
+          <app-input formControlName="apellido"></app-input>
+        </app-form-field>
+  
+        <app-form-field label="Password" [required]="true" [control]="form.controls.password" [isInline]="false"
+          [patternError]="regexErrors.password">
+          <app-password formControlName="password"></app-password>
+        </app-form-field>
+  
+  
+        <app-form-field label="Repite Password" [required]="true" [control]="form.controls.passwordRepeat"
+          [isInline]="false" [patternError]="regexErrors.password">
+          <app-password formControlName="passwordRepeat"></app-password>
+        </app-form-field>
+  
+        <div class="error" [class.error_active]="form.hasError('repeat')">
+          El password no concuerda
+        </div>
+  
+      </div>
+  
+      <div class="app-page__footer">
+        <app-button type="submit">Enviar</app-button>
+      </div>
+  
+    </form>
+  
+    <app-spinner *ngIf="loading$ | async"></app-spinner>
+  
+  </div>
+  

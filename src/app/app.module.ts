@@ -34,6 +34,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
+import {reducers, effects } from './store';
 import {AuthInterceptor} from './auth-interceptor';
 
 import { MenuListComponent } from './components/menu-list/menu-list.component';
@@ -64,15 +65,6 @@ const APP_DATE_FORMATS: MatDateFormats = {
     FlexLayoutModule,
     MatListModule,
     MatIconModule,
-    StoreDevtools,
-
-    StoreModule.forRoot({}),
-    EffectsModule.forRoot(),
-
-    NotificationModule.forRoot(),
-
-    HttpClientModule,
-
 
     provideFirebaseApp(() => initializeApp(environment.firebase.config)),
     provideFirestore(() => getFirestore()),
@@ -88,8 +80,20 @@ const APP_DATE_FORMATS: MatDateFormats = {
     MatNativeDateModule,
     ButtonModule,
     StoreDevtools,
+
+    StoreModule.forRoot(reducers, {
+      runtimeChecks: {
+        strictActionImmutability: true,
+        strictStateImmutability: true
+      }
+    }),
+    EffectsModule.forRoot(effects),
+
+
     NotificationModule.forRoot(),
+
     HttpClientModule
+
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},

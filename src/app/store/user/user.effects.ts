@@ -21,17 +21,18 @@ export class UserEffects {
     private router: Router,
     private httpClient: HttpClient,
     private notification: NotificationService
-  ) { }
+  ) { console.log("hola");}
 
   signUpEmail: Observable<Action> = createEffect(() =>
     this.actions.pipe(
       ofType(fromActions.Types.SIGN_UP_EMAIL),
       map((action: fromActions.SignUpEmail) => action.user),
       switchMap(userData =>
-        this.httpClient.post<UserResponse>(`${environment.url}/api/Usuario/Registrar`, userData)
+        this.httpClient.post<UserResponse>(`${environment.url}/api/usuario/creacion`, userData)
           .pipe(
             tap((response: UserResponse) => {
-              localStorage.setItem('token', response.token);
+              console.log(response);
+              //localStorage.setItem('token', response.token);
               this.router.navigate(['/']);
             }),
             map((response: UserResponse) => new fromActions.SignUpEmailSuccess(response.id, response || null)),
@@ -56,7 +57,7 @@ export class UserEffects {
       ofType(fromActions.Types.SIGIN_IN_EMAIL),
       map((action: fromActions.SignInEmail) => action.credentials),
       switchMap(credentials =>
-        this.httpClient.post<UserResponse>(`${environment.url}/api/Usuario/login`, credentials)
+        this.httpClient.post<UserResponse>(`${environment.url}/api/usuario/login`, credentials)
           .pipe(
             tap((response: UserResponse) => {
               localStorage.setItem('token', response.token);
