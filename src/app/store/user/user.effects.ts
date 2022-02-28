@@ -33,7 +33,7 @@ export class UserEffects {
             tap((response: UserResponse) => {
               console.log(response);
               //localStorage.setItem('token', response.token);
-              this.router.navigate(['/']);
+              this.router.navigate(['/auth/login']);
             }),
             map((response: UserResponse) => new fromActions.SignUpEmailSuccess(response.id, response || null)),
             //catchError(err => of(new fromActions.SignUpEmailError(err.message)))
@@ -57,9 +57,10 @@ export class UserEffects {
       ofType(fromActions.Types.SIGIN_IN_EMAIL),
       map((action: fromActions.SignInEmail) => action.credentials),
       switchMap(credentials =>
-        this.httpClient.post<UserResponse>(`${environment.url}/api/usuario/login`, credentials)
+        this.httpClient.post<UserResponse>(`${environment.url}/api/usuario/autenticacion`, credentials)
           .pipe(
             tap((response: UserResponse) => {
+              
               localStorage.setItem('token', response.token);
               this.router.navigate(['/']);
             }),
