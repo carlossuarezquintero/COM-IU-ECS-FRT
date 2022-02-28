@@ -1,0 +1,72 @@
+<div class="app-page">
+
+    <div class="app-page__header">
+      <h1>Nuevo Producto</h1>
+    </div>
+  
+    <form [formGroup]="form" autocomplete="off" (submit)="onSubmit()">
+  
+  
+      <div class="app-page__content">
+  
+          <div class="personal__photo">
+            <div class="photo">
+              <app-user-photo class="photo__img" [photoURL]="form.controls.photoURL.value" ></app-user-photo>
+               <div class="app-a" appFilesUpload (changed)="onFilesChanged($event)">
+                  Subir Imagen
+               </div>
+            </div>
+          </div>
+  
+          <app-form-field label="Nombre" [required]="true" [control]="form.controls.nombre" [isInline]="false">
+              <app-input formControlName="nombre"></app-input>
+          </app-form-field>
+  
+          <app-form-field label="Descripcion" [required]="true" [control]="form.controls.descripcion" [isInline]="false">
+            <app-input formControlName="descripcion"></app-input>
+          </app-form-field>
+  
+  
+          <app-form-field label="Stock" [required]="true" [control]="form.controls.stock" [isInline]="false"
+            [patternError]="regexErrors.number"
+          >
+            <app-input formControlName="stock"></app-input>
+          </app-form-field>
+  
+  
+          <app-form-field label="Precio" [required]="true" [control]="form.controls.precio" [isInline]="false"
+            [patternError]="regexErrors.number"
+          >
+            <app-input formControlName="precio"></app-input>
+          </app-form-field>
+  
+  
+          <app-form-field label="Categoria" [required]="true" [control]="form.controls.categoria" [isInline]="false">
+  
+            <app-select formControlName="categoria" [items]="controls.categoria.items ? controls.categoria.items : []" ></app-select>
+  
+          </app-form-field>
+  
+          <app-form-field label="Marca" [required]="true" [control]="form.controls.marca" [isInline]="false">
+  
+            <app-select formControlName="marca" [items]="controls.marca.items ? controls.marca.items : []" ></app-select>
+  
+          </app-form-field>
+  
+      </div>
+  
+  
+      <div class="app-page__footer">
+        <app-button type="submit" >Guardar</app-button>
+      </div>
+  
+  
+    </form>
+  
+    <app-spinner *ngIf="loading$ | async"></app-spinner>
+  
+  
+  
+  </div>
+  
+  
